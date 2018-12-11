@@ -199,7 +199,7 @@ public class level_generation_sketch extends PApplet {
 
     public void mousePressed(){
         if (currentMode == 0) {
-            if (dist(mouseX, mouseY, 950, 100) < 50) {
+            if (dist(mouseX, mouseY, 100, 100) < 50) {
                 rot += PI;
                 //println("Rotate Button pressed");
             } else if (dist(mouseX, mouseY, 1100, 100) < 50) {
