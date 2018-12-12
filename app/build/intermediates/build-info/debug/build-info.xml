@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1544568394310"
+    timestamp="1544643336665"
     token="2620208408886747583"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="202" />
+        duration="161" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="28" />
     <task
         name="verifier"
-        duration="12" />
+        duration="2" />
 
     <artifact
         location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -30,8 +30,11 @@
 
     <build
         build-mode="FULL"
-        timestamp="1544557180277"
+        timestamp="1544635824004"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
@@ -57,9 +60,6 @@
             location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
@@ -72,7 +72,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1544568394310"
+        timestamp="1544643336665"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Nick\AndroidStudioProjects\capstone_export\app\build\intermediates\split-apk\debug\slices\slice_9.apk"

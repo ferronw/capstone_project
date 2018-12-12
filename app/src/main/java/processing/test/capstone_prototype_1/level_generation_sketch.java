@@ -39,6 +39,17 @@ public class level_generation_sketch extends PApplet {
     int[] square;
     int[] playerStartPos;
     int[] goalPos;
+    int[] enemyOnePos;
+    int[] enemyTwoPos;
+    int[] enemyThreePos;
+    String[] intructions = {
+            "Tap to place player Start",
+            "Tap to place goal position",
+            "Tap to place enemy positions",
+            "Tap to place enemy positions",
+            "Tap to place enemy positions",
+            "Tap the upper left corner to generate level"
+    };
     int clickCount = 0;
     int darkCount = 0;
     boolean runOnce = true;
@@ -63,29 +74,36 @@ public class level_generation_sketch extends PApplet {
         square = new int[boxSize*boxSize];
         playerStartPos = new int[2];
         goalPos = new int[2];
+        enemyOnePos = new int[2];
+        enemyTwoPos = new int[2];
+        enemyThreePos = new int[2];
     }
 
     public void draw(){
 
         if (currentMode == 0) {
-            //have the user rotate the image to the corrent orientation
+            //have the user rotate the image to the correct orientation
             translate(width/2, height/2);
             rotate(rot);
             if (img != null) {
                 image(img,-width/2,-height/2,width, height);
                 save("temp_output.jpg");
             }
-            /*rotate(-rot);
-            translate(-width/2, -height/2);
+            //draw ui
+            rotate(-rot);
             ellipseMode(CENTER);
             fill(127, 127);
-            ellipse(950, 100, 100,100);
-            ellipse(1100, 100, 100,100);
-            fill(255);
-            textSize(26);
-            text("R", 950, 100);
-            text("P", 1100, 100);*/
-            //
+            ellipse(-width/2+50, -height/2+50, 100, 100);
+            ellipse(width/2-100, -height/2+50, 100, 100);
+            textSize(32);
+            fill(0);
+            text("Rotate Level", -width/2+10, -height/2+50);
+            text("Generate", width/2-200, -height/2+50);
+            text(intructions[clickCount], -173, 352);
+            fill(126);
+            text(intructions[clickCount], -175, 350);
+
+            rotate(rot);
         } else {
             //convert to black and white
             rotImg = loadImage("temp_output.jpg");
@@ -130,7 +148,13 @@ public class level_generation_sketch extends PApplet {
                             outData[j] += "4,";
                         } else if (i == goalPos[0] && j == goalPos[1]){
                             outData[j] += "3,";
-                        } else {
+                        } else if (i == enemyOnePos[0] && j == enemyOnePos[1]){
+                            outData[j] += "2,";
+                        }else if (i == enemyTwoPos[0] && j == enemyTwoPos[1]){
+                            outData[j] += "2,";
+                        }else if (i == enemyThreePos[0] && j == enemyThreePos[1]){
+                            outData[j] += "2,";
+                        }else {
                             if (darkCount >= 800) {
                                 outData[j] += "1,";
                             } else {
@@ -199,10 +223,10 @@ public class level_generation_sketch extends PApplet {
 
     public void mousePressed(){
         if (currentMode == 0) {
-            if (dist(mouseX, mouseY, 100, 100) < 50) {
+            if (dist(mouseX, mouseY, 50, 50) < 75) {
                 rot += PI;
                 //println("Rotate Button pressed");
-            } else if (dist(mouseX, mouseY, 1100, 100) < 50) {
+            } else if (dist(mouseX, mouseY, 1180, 100) < 75) {
                 currentMode = 1;
                 println("Process Button pressed");
             } else {
@@ -213,11 +237,29 @@ public class level_generation_sketch extends PApplet {
                     clickCount++;
                     println("Setting player start to: " + playerStartPos[0] + " , " + playerStartPos[1]);
                 } else if (clickCount == 1){
-                    //set coordinates for goal spawn
+                    //set coordinates for first enemy spawn
                     goalPos[0] = mouseX / boxSize;
                     goalPos[1] = mouseY / boxSize;
                     clickCount++;
                     println("Setting goal pos to: " + goalPos[0] + " , " + goalPos[1]);
+                } else if (clickCount == 2){
+                    //set coordinates for goal spawn
+                    enemyOnePos[0] = mouseX / boxSize;
+                    enemyOnePos[1] = mouseY / boxSize;
+                    clickCount++;
+                    println("Setting e1 pos to: " + enemyOnePos[0] + " , " + enemyOnePos[1]);
+                } else if (clickCount == 3){
+                    //set coordinates for goal spawn
+                    enemyTwoPos[0] = mouseX / boxSize;
+                    enemyTwoPos[1] = mouseY / boxSize;
+                    clickCount++;
+                    println("Setting e2 pos to: " + enemyTwoPos[0] + " , " + enemyTwoPos[1]);
+                }else if (clickCount == 4){
+                    //set coordinates for goal spawn
+                    enemyThreePos[0] = mouseX / boxSize;
+                    enemyThreePos[1] = mouseY / boxSize;
+                    clickCount++;
+                    println("Setting e3 pos to: " + enemyThreePos[0] + " , " + enemyThreePos[1]);
                 }
 
             }

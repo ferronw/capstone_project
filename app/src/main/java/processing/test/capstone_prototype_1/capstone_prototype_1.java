@@ -123,21 +123,21 @@ public void draw(){
     
     time = frameCount/60.0f;
     
-    showDebugText();
+
   } else if (gamestate.equals("win")){
-    textSize(48);
-    fill(0);
-    text("LEVEL COMPLETE!", width/2+2, height/2+2);
-    fill(255);
-    text("LEVEL COMPLETE!", width/2, height/2);
-    startActivity(new Intent(getContext(), MainActivity.class));
+      textSize(48);
+      fill(0);
+      text("LEVEL COMPLETE!", width/2+2, height/2+2);
+      fill(255);
+      text("LEVEL COMPLETE!", width/2, height/2);
+      startActivity(new Intent(getContext(), MainActivity.class));
   } else if (gamestate.equals("fail")){
-    textSize(48);
-    fill(0);
-    text("Level failed!", width/2+2, height/2+2);
-    fill(255);
-    text("Level failed!", width/2, height/2);
-    startActivity(new Intent(getContext(), MainActivity.class));
+      textSize(48);
+      fill(0);
+      text("Level failed!", width/2+2, height/2+2);
+      fill(255);
+      text("Level failed!", width/2, height/2);
+      startActivity(new Intent(getContext(), MainActivity.class));
   }
   /*
   for (int i = environment.size()-1; i>=0; i--){
@@ -145,11 +145,41 @@ public void draw(){
    b.show();
   }*/
 
+
+  //draw ui
   fill(150, 120);
+  textSize(20);
   rect(100, 650, 150, 50);
+  fill(255);
+  text("Left", 160,680);
+  fill(150, 120);
   rect(300, 650, 150, 50);
-  rect(1000,640, 75, 75);
-  
+  fill(255);
+  text("Right", 360,680);
+  fill(150, 120);
+  rect(1000,640, 100, 70);
+  fill(255);
+  text("Jump", 1025,680);
+
+//player input
+  for (int i = 0; i < touches.length; i++) {
+    if (touches[i].x > 100 && touches[i].x < 250 && touches[i].y > 650 && touches[i].y < 700){
+      //player.hMotion = -5;
+      player.leftMove = true;
+    } else if (touches[i].x > 300 && touches[i].x < 450 && touches[i].y > 650 && touches[i].y < 700){
+      //player.hMotion = 5;
+      player.rightMove = true;
+    } else if (touches[i].x > 1000 && touches[i].x < 1100 && touches[i].y > 640 && touches[i].y < 720){
+      //player.vMotion = -10;
+      if (player.canJumpAgain == true) {
+        player.jump = true;
+        player.canJumpAgain = false;
+      }
+    }else {
+      //player.hMotion = 0;
+    }
+  }
+  showDebugText();
   /*for (int j = 0; j < columns; j++){
     for (int k = 0; k < rows; k++){
        stroke(127);
@@ -159,16 +189,17 @@ public void draw(){
   }*/
 }
 
-public void environmentCollisionCheck(){
-  
-}
-
 public void showDebugText(){
   fill(255);
+  textSize(12);
   text("x: " + player.x, 25,25);
   text("hmotion: " + player.hMotion, 25,50);
   text("time: " + time, 25,75);
   text("gamestate: " + gamestate, 25,100);
+  text("jump: " + player.jump, 25,125);
+  text("canJumpAgain: " + player.canJumpAgain, 25,150);
+  text("mousePressed: " + mousePressed, 25, 175);
+  text("touches: " + touches.length, 25, 200);
 }
 
 class PlayerCharacter {
@@ -200,7 +231,7 @@ class PlayerCharacter {
   //all physics and movement here
   public void motion(){
     
-    if (!mousePressed){
+    if (touches.length == 0){
       leftMove = false;
       rightMove = false;
     }
@@ -292,6 +323,9 @@ class PlayerCharacter {
          if (x+mWidth>e.x && x<e.x+e.size && y+mHeight>e.y && y<e.y+e.size){
            gamestate = "fail";
          }
+    }
+    if (y > height+50){
+      gamestate = "fail";
     }
   }
   
@@ -395,6 +429,8 @@ class Block {
 }
 
 public void mousePressed(){
+
+  /*
   if (mouseX > 100 && mouseX < 250 && mouseY > 650 && mouseY < 700){
     //player.hMotion = -5;
     player.leftMove = true;
@@ -408,6 +444,7 @@ public void mousePressed(){
   }else {
     //player.hMotion = 0;
   }
+  */
 }
 
 public void keyPressed(){
