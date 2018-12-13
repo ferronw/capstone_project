@@ -1,1 +1,13 @@
-<resources></resources>
+<resources>
+    <string name="help_text">
+        \nWelcome to Draw and Jump!\n\n
+        Press the create level button to get started.\n\n
+        Pick a photo from your gallery then press Generate Level.\n\n
+        Tap the top left corner to rotate the image to the correct direction.\n\n
+        Tap on the image where you want the player to start, where the end goal is, and where the enemies are.\n\n
+        Then tap the top right corner to create the level.\n\n
+        When back to the main menu, press play game.\n\n
+        Guide your character to the end goal and watch out for monsters.\n\n
+        Press the left and right buttons to move, and tap jump to jump.\n
+    </string>
+</resources>

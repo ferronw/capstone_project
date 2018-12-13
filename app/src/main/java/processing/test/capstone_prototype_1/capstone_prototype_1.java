@@ -35,6 +35,8 @@ int rows = 18;
 int boxSize;
 PImage blockImg;
 PImage flagImg;
+PImage enemyArt;
+PImage playerArt;
 PImage tempBackground;
 boolean runOnce = true;
 float time = 0;
@@ -51,6 +53,8 @@ public void setup(){
  
  blockImg = loadImage("block.png");
  flagImg = loadImage("flag.png");
+  enemyArt = loadImage("enemy.png");
+  playerArt = loadImage("playerCharacter.png");
  
  environment = new ArrayList();
  enemies = new ArrayList();
@@ -179,7 +183,7 @@ public void draw(){
       //player.hMotion = 0;
     }
   }
-  showDebugText();
+  //showDebugText();
   /*for (int j = 0; j < columns; j++){
     for (int k = 0; k < rows; k++){
        stroke(127);
@@ -338,7 +342,8 @@ class PlayerCharacter {
   public void show() {
     noStroke();
     fill(5,200,0);
-    rect(x,y,mWidth,mHeight);
+    //rect(x,y,mWidth,mHeight);
+    image(playerArt,x,y,mWidth,mHeight);
   }
   
   
@@ -367,7 +372,8 @@ class Enemy {
   public void show(){
     noStroke();
     fill(255,0,10);
-    rect(x,y,size,size);
+    //rect(x,y,size,size);
+    image(enemyArt,x,y,size,size);
   }
   
   public void move(){
@@ -428,59 +434,5 @@ class Block {
   
 }
 
-public void mousePressed(){
-
-  /*
-  if (mouseX > 100 && mouseX < 250 && mouseY > 650 && mouseY < 700){
-    //player.hMotion = -5;
-    player.leftMove = true;
-  } else if (mouseX > 300 && mouseX < 450 && mouseY > 650 && mouseY < 700){
-    //player.hMotion = 5;
-    player.rightMove = true;
-  } else if (mouseX > 1000 && mouseX < 1075 && mouseY > 650 && mouseY < 720){
-    //player.vMotion = -10;
-    player.jump = true;
-    player.canJumpAgain = false;
-  }else {
-    //player.hMotion = 0;
-  }
-  */
-}
-
-public void keyPressed(){
-  if(key == 'a'){
-    player.leftMove = true;
-  }
-  if(key == 'd'){
-    player.rightMove = true;
-  }
-  if(key == 'w'){
-    if (player.canJumpAgain){
-      player.jump = true;
-      player.canJumpAgain = false;
-    }
-  }
-  if(key == 'x'){
-    String fileName = dataPath("temp_background2.jpg");
-  File f = new File(fileName);
-  if (f.exists()) {
-    f.delete();
-  }
-  
-  }
-}
-
-
-public void keyReleased(){
-  if(key == 'a'){
-    player.leftMove = false;
-  }
-  if(key == 'd'){
-    player.rightMove = false;
-  } 
-  if(key == 'w'){
-    player.jump = false;
-  }
-}
   public void settings() {  size(1280,720); }
 }

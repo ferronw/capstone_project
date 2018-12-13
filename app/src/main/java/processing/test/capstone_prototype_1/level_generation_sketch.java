@@ -235,31 +235,31 @@ public class level_generation_sketch extends PApplet {
                     playerStartPos[0] = mouseX / boxSize;
                     playerStartPos[1] = mouseY / boxSize;
                     clickCount++;
-                    println("Setting player start to: " + playerStartPos[0] + " , " + playerStartPos[1]);
+                    //println("Setting player start to: " + playerStartPos[0] + " , " + playerStartPos[1]);
                 } else if (clickCount == 1){
                     //set coordinates for first enemy spawn
                     goalPos[0] = mouseX / boxSize;
                     goalPos[1] = mouseY / boxSize;
                     clickCount++;
-                    println("Setting goal pos to: " + goalPos[0] + " , " + goalPos[1]);
+                    //println("Setting goal pos to: " + goalPos[0] + " , " + goalPos[1]);
                 } else if (clickCount == 2){
                     //set coordinates for goal spawn
                     enemyOnePos[0] = mouseX / boxSize;
                     enemyOnePos[1] = mouseY / boxSize;
                     clickCount++;
-                    println("Setting e1 pos to: " + enemyOnePos[0] + " , " + enemyOnePos[1]);
+                    //println("Setting e1 pos to: " + enemyOnePos[0] + " , " + enemyOnePos[1]);
                 } else if (clickCount == 3){
                     //set coordinates for goal spawn
                     enemyTwoPos[0] = mouseX / boxSize;
                     enemyTwoPos[1] = mouseY / boxSize;
                     clickCount++;
-                    println("Setting e2 pos to: " + enemyTwoPos[0] + " , " + enemyTwoPos[1]);
+                    //println("Setting e2 pos to: " + enemyTwoPos[0] + " , " + enemyTwoPos[1]);
                 }else if (clickCount == 4){
                     //set coordinates for goal spawn
                     enemyThreePos[0] = mouseX / boxSize;
                     enemyThreePos[1] = mouseY / boxSize;
                     clickCount++;
-                    println("Setting e3 pos to: " + enemyThreePos[0] + " , " + enemyThreePos[1]);
+                    //println("Setting e3 pos to: " + enemyThreePos[0] + " , " + enemyThreePos[1]);
                 }
 
             }
