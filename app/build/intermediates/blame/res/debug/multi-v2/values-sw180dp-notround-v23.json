@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Nick\\AndroidStudioProjects\\capstone_export\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw180dp-notround-v23\\values-sw180dp-notround-v23.xml",
+            "outputFile": "C:\\Users\\cjd19\\Documents\\capstone\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw180dp-notround-v23\\values-sw180dp-notround-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Nick\\.gradle\\caches\\transforms-1\\files-1.1\\wearable-2.1.0.aar\\44d02513cdaf7b718b2b71f62ad5f531\\res\\values-sw180dp-notround-v23\\values.xml",
+                    "source": "C:\\Users\\cjd19\\.gradle\\caches\\transforms-1\\files-1.1\\wearable-2.1.0.aar\\aee1dabbc10de4c7f962015ee78a637b\\res\\values-sw180dp-notround-v23\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0",
