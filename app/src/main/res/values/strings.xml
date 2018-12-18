@@ -1,4 +1,7 @@
 <resources>
+    <string name="gotogame">Go To Game</string>
+    <string name="createlevel">Create a Level</string>
+    <string name="help">Help</string>
     <string name="help_text">
         \nWelcome to Draw and Jump!\n\n
         Press the create level button to get started.\n\n
