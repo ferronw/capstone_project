@@ -15,8 +15,7 @@
     <application
         android:debuggable="true"
         android:icon="@drawable/icon"
-        android:label="capstone_prototype_1"
-        android:testOnly="true" >
+        android:label="capstone_prototype_1" >
         <activity
             android:name="processing.test.capstone_prototype_1.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" >
